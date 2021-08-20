@@ -1,0 +1,17 @@
+ issue 
+   cron.present:
+     - user:root
+     - name : 'bash /opt/scripts/disk_usage_monitor.sh'
+     - minute: '1'
+         - hour: '*/3'
+
+There is no indentation between "user:root"
+
+issue resolved after chaning as below :
+ issue 
+   cron.present:
+     - user:  root
+     - name : 'bash /opt/scripts/disk_usage_monitor.sh'
+     - minute: '1'
+         - hour: '*/3'
+

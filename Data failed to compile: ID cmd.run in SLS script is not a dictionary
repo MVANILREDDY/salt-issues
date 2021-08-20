@@ -1,0 +1,14 @@
+{% set v_user = salt['pillar.get']('v_user') %}
+cmd.run:
+  - name:  echo {{ v_user }}
+  - cwd:  /
+issue is due to non-existence of name for above standalone state
+
+
+issue resolved after adding line "place_script:"
+
+{% set v_user = salt['pillar.get']('v_user') %}
+place_script:
+  cmd.run:
+    - name:  echo {{ v_user }}
+    - cwd:  /
